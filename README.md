@@ -1,3 +1,1 @@
-# tcl
-
-tcl scripst via linux expect
+TCL scripts via linux expect
