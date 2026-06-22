@@ -23,6 +23,6 @@ then
 	echo Starting Scripts...Wait...
 	cat ./$VAR_FILE | while read -r VAR_IP
 	do
-		expect ./entersys.tcl $VAR_IP $VAR_RANDOM $VAR_DT $VAR_DIR
+		expect ./start_backup.tcl $VAR_IP $VAR_RANDOM $VAR_DT $VAR_DIR
 	done
 fi
