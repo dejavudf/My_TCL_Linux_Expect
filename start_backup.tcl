@@ -1,6 +1,7 @@
 #!/usr/bin/expect -f
 
 # Set variables 
+set timeout 15
 set VAR_IP [lindex $argv 0]
 set VAR_PASS [lindex $argv 1]
 set VAR_DT [lindex $argv 2]
@@ -15,14 +16,10 @@ spawn ../random -p $VAR_PASS ssh -o KexAlgorithms=+diffie-hellman-group1-sha1,di
 log_file -noappend $VAR_DIR/$VAR_DT/$VAR_DT\_$VAR_IP\_config.cfg
 
 # expect
-sleep 2;
 expect ">";
-sleep 2;
 send "set length 0\r";
 expect ">";
-sleep 2;
 send "show config\r";
-expect ">";
-sleep 2;
+expect "(su)->";
 send "exit\r";
 exit
