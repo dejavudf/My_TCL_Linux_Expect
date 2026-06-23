@@ -25,11 +25,11 @@ then
 	cat ./$VAR_FILE | while read -r VAR_IP
 	do
 		expect ./voss.tcl $VAR_IP $VAR_RANDOM $VAR_DT $VAR_DIR
-		if cat $VAR_DIR/$VAR_DT/$VAR_DT\_$VAR_IP\_voss.cfg | grep -i "connect to host $VAR_IP port 22"
+		if ! cat $VAR_DIR/$VAR_DT/$VAR_DT\_$VAR_IP\_voss.cfg | grep -i "extreme"
 		then
 			echo "$VAR_IP - error" >> ./"$VAR_DT"_failure.log
 		else
-			echo "$VAR_IP - success" >> ./"$VAR_DT"_sucess.log
+			echo "$VAR_IP - success" >> ./"$VAR_DT"_success.log
 		fi
 	done
 fi
